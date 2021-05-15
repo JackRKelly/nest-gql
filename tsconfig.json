@@ -12,9 +12,22 @@
     "baseUrl": "./",
     "incremental": true,
     "paths": {
-      "@controllers/*": ["./src/controllers/*"],
-      "@modules/*": ["./src/modules/*"],
-      "@services/*": ["./src/services/*"]
+      "@controllers/*": [
+        "./src/controllers/*"
+      ],
+      "@modules/*": [
+        "./src/modules/*"
+      ],
+      "@services/*": [
+        "./src/services/*"
+      ]
     }
-  }
+  },
+  "include": [
+    "./src"
+  ],
+  "exclude": [
+    "./dist",
+    "./node_modules"
+  ]
 }
