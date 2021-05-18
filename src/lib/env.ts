@@ -15,7 +15,7 @@ function validateEnv<T extends string = string>(key: keyof NodeJS.ProcessEnv, de
 }
 
 export class env {
-  static readonly NodeEnv = validateEnv<"development" | "production">("NODE_ENV", "production");
+  static readonly NodeEnv = validateEnv<"development" | "production">("NODE_ENV", "development");
 
   static readonly Port = validateEnv("PORT", "3000");
 }
