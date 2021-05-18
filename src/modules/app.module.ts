@@ -1,11 +1,15 @@
 import { Module } from '@nestjs/common';
+import { GraphQLModule } from '@nestjs/graphql';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from '@controllers/app.controller';
 import { AppService } from '@services/app.service';
-import { GraphQLModule } from '@nestjs/graphql';
-import { TypeOrmModule } from '@nestjs/typeorm'
+import { UserModule } from "@data/user/user.module";
+
+//https://blog.logrocket.com/how-to-build-a-graphql-api-with-nestjs/
 
 @Module({
   imports: [
+    UserModule,
     GraphQLModule.forRoot({
       debug: false,
       playground: true,
@@ -19,10 +23,11 @@ import { TypeOrmModule } from '@nestjs/typeorm'
       password: 'postgres',
       database: 'nestjs-gql',
       entities: ['dist/**/*.model.js'],
-      synchronize: false,
+      synchronize: true,
     }),
   ],
   controllers: [AppController],
   providers: [AppService]
 })
+
 export class AppModule {}
