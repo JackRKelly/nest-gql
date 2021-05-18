@@ -4,6 +4,7 @@ import { TypeOrmModule } from "@nestjs/typeorm";
 import { AppController } from "@controllers/app.controller";
 import { AppService } from "@services/app.service";
 import { UserModule } from "@data/user/user.module";
+import { env } from "@lib/env";
 
 @Module({
   imports: [
@@ -21,7 +22,7 @@ import { UserModule } from "@data/user/user.module";
       password: "postgres",
       database: "nestjs-gql",
       entities: ["dist/**/*.model.js"],
-      synchronize: true,
+      synchronize: env.NodeEnv === "development",
     }),
   ],
   controllers: [AppController],
