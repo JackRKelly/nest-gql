@@ -1,16 +1,14 @@
-import { UserService } from './user.service';
-import { UserModel } from './user.model';
-import { Resolver, Mutation, Args, Query } from '@nestjs/graphql';
-import { Inject } from '@nestjs/common';
+import { UserService } from "./user.service";
+import { UserModel } from "./user.model";
+import { Resolver, Mutation, Args, Query } from "@nestjs/graphql";
+import { Inject } from "@nestjs/common";
 
 @Resolver(() => UserModel)
 export class UserResolver {
-  constructor(
-    @Inject(UserService) private userRepository: UserService,
-  ) {}
+  constructor(@Inject(UserService) private userRepository: UserService) {}
 
   @Query(() => UserModel)
-  async user(@Args('id') id: string): Promise<UserModel> {
+  async user(@Args("id") id: string): Promise<UserModel> {
     return await this.userRepository.findOne(id);
   }
 
@@ -21,11 +19,11 @@ export class UserResolver {
 
   @Mutation(() => UserModel)
   async createUser(
-    @Args('name') name: string,
-    @Args('email') email: string,
-    @Args('phone', { nullable: true }) phone: string,
-    @Args('address', { nullable: true }) address: string,
+    @Args("name") name: string,
+    @Args("email") email: string,
+    @Args("phone", { nullable: true }) phone: string,
+    @Args("address", { nullable: true }) address: string
   ): Promise<UserModel> {
-    return await this.userRepository.create({ name, email, phone, address })
+    return await this.userRepository.create({ name, email, phone, address });
   }
 }

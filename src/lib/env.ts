@@ -23,5 +23,5 @@ export class env {
     "production"
   );
 
-  static readonly Port = validateEnv("PORT", "8888");
+  static readonly Port = validateEnv("PORT", "3000");
 }

@@ -1,23 +1,29 @@
-import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
-import { ObjectType, Field } from '@nestjs/graphql';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from "typeorm";
+import { ObjectType, Field } from "@nestjs/graphql";
 
 @ObjectType()
 @Entity()
 export class UserModel {
   @Field()
-  @PrimaryGeneratedColumn('uuid')
+  @PrimaryGeneratedColumn("uuid")
   id: string;
   @Field()
   @Column({ length: 500, nullable: false })
   name: string;
   @Field()
-  @Column('text', { nullable: false })
+  @Column("text", { nullable: false })
   email: string;
   @Field()
-  @Column('varchar', { length: 15 })
+  @Column("varchar", { length: 15 })
   phone: string;
   @Field()
-  @Column('text')
+  @Column("text")
   address: string;
 
   @Field()
