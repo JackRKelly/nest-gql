@@ -3,4 +3,5 @@ module.exports = {
   semi: true,
   bracketSpacing: true,
   arrowParens: "always",
+  printWidth: 120,
 };

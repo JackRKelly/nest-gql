@@ -1,6 +1,6 @@
 import { UserService } from "./user.service";
 import { UserModel } from "./user.model";
-import { Resolver, Mutation, Args, Query } from "@nestjs/graphql";
+import { Args, Mutation, Query, Resolver } from "@nestjs/graphql";
 import { Inject } from "@nestjs/common";
 
 @Resolver(() => UserModel)
