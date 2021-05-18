@@ -5,8 +5,6 @@ import { AppController } from '@controllers/app.controller';
 import { AppService } from '@services/app.service';
 import { UserModule } from "@data/user/user.module";
 
-//https://blog.logrocket.com/how-to-build-a-graphql-api-with-nestjs/
-
 @Module({
   imports: [
     UserModule,
